@@ -37,10 +37,14 @@ public class CurrencyApiClient {
             System.out.println("***********************************************");
 
             // tratando exceções caso usuario digite algum simbolo ou letra
-            try {
-                opcao = Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException e){
-                System.out.println("Erro: Por favor digite apenas números inteiros.");
+            boolean validaEntrada = false;
+            while (!validaEntrada){
+                try {
+                    opcao = Integer.parseInt(scanner.nextLine());
+                    validaEntrada = true;
+                } catch (NumberFormatException e){
+                    System.out.println("Erro: Por favor digite apenas números inteiros.");
+                }
             }
             String from = "";
             String to = "";
